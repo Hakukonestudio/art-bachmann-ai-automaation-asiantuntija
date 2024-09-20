@@ -1,0 +1,37 @@
+.voiceflowChatbot {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 98vw;
+    height: 98vh;
+    z-index: 9999;
+  }
+  
+  /* Tablet (768px and up) */
+  @media (min-width: 768px) {
+    .voiceflowChatbot {
+      width: 94vw;
+    }
+  }
+  
+  /* Laptop (1024px and up) */
+  @media (min-width: 1024px) {
+    .voiceflowChatbot {
+      width: 92vw;
+    }
+  }
+  
+  /* Desktop (1280px and up) */
+  @media (min-width: 1280px) {
+    .voiceflowChatbot {
+      width: 82vw;
+    }
+  }
+  
+  /* Large Desktop (1536px and up) */
+  @media (min-width: 1536px) {
+    .voiceflowChatbot {
+      width: 68vw;
+    }
+  }

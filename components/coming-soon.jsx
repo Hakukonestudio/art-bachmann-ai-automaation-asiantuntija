@@ -1,45 +1,27 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import Image from 'next/image';
 import styles from './coming-soon.module.css';
 
 export const ComingSoon = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const handleMouseMove = (event) => {
-      setMousePosition({ x: event.clientX, y: event.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-
-    const interval = setInterval(() => {
-      setCount((prevCount) => (prevCount + 1) % 100);
-    }, 50);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      clearInterval(interval);
-    };
-  }, []);
-
   return (
     <div className={styles.container}>
-      <div 
-        className={styles.background}
-        style={{
-          background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0) 80%)`
-        }}
-      />
       <div className={styles.content}>
-        <img src="/images/logo.png" alt="Logo" className={styles.logo} />
-        <h1 className={styles.title}>Ohjelma on valmisteilla</h1>
-        <p className={styles.subtitle}>Pysy kuulolla, tulossa pian!</p>
-        <div className={styles.progressBar}>
-          <div className={styles.progress} style={{ width: `${count}%` }} />
+        <div className={styles.logoContainer}>
+          <Image 
+            src="/images/logo.png" 
+            alt="Logo" 
+            width={400}
+            height={400}
+            className={styles.logo}
+          />
         </div>
-        <p className={styles.loadingText}>Lataaminen... {count}%</p>
+        <h1 className={styles.title}>Tervetuloa Portfoliollemme</h1>
+        <p className={styles.subtitle}>Art Bachmann - AI Automaatio Asiantuntija</p>
+        <div className={styles.description}>
+          Tulevassa ohjelmassa esittelemme monipuolisia projekteja, jotka korostavat AI-automaatioosaamistani ja kehitystäni. Odotettavissa ovat edistyneet chatbotit, automatisoidut ratkaisut ja innovatiiviset integraatiot, jotka tuovat lisäarvoa asiakkaillemme. Portfoliomme heijastaa kykyäni yhdistää ohjelmointitaitoja ja moderneja työkaluja luodakseni tehokkaita ja räätälöityjä ratkaisuja. Pysy kuulolla ja tutustu tuleviin projekteihimme, jotka muokkaavat tulevaisuuden työprosesseja.
+        </div>
       </div>
       {[...Array(20)].map((_, index) => (
         <div 
